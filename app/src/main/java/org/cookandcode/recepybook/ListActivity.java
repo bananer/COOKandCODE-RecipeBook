@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class ListActivity extends AppCompatActivity {
@@ -26,6 +27,15 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 itemClicked(position);
+            }
+        });
+
+        Button buttonCreate = (Button) findViewById(R.id.buttonCreate);
+        buttonCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ListActivity.this, CreateActivity.class);
+                startActivity(i);
             }
         });
     }
