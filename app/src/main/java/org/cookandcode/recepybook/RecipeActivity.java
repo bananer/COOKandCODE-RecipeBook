@@ -4,24 +4,43 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class RecipeActivity extends AppCompatActivity {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-    protected Recipe recipe;
+public class RecipeActivity extends AppCompatActivity {
 
     protected TextView recipeInstructions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        int recipeIndex = this.getIntent().getIntExtra("recipeIndex", 0);
-        Recipe[] recipes = Recipes.getRecipes();
-        this.recipe = recipes[recipeIndex];
-
         setContentView(R.layout.activity_recipe);
 
-        this.setTitle(this.recipe.getName());
         this.recipeInstructions = (TextView)findViewById(R.id.recipeInstructions);
-        this.recipeInstructions.setText(this.recipe.getInstructions());
+
+        String recipeKey = this.getIntent().getStringExtra("recipeKey");
+
+        DatabaseReference recipeRef = FirebaseDatabase.getInstance().getReference("recipes").child(recipeKey);
+
+        recipeRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Recipe r = dataSnapshot.getValue(Recipe.class);
+                showRecipe(r);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void showRecipe(Recipe recipe) {
+        this.setTitle(recipe.getName());
+        this.recipeInstructions.setText(recipe.getInstructions());
     }
 }
