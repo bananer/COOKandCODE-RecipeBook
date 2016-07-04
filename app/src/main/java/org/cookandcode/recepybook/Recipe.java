@@ -4,6 +4,8 @@ public class Recipe {
     protected String name;
     protected String instructions;
 
+    public Recipe() {}
+
     public Recipe(String name, String instructions) {
         this.name = name;
         this.instructions = instructions;
