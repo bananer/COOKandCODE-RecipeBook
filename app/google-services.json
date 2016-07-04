@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "90722534780",
+    "firebase_url": "https://recipebooktest.firebaseio.com",
+    "project_id": "recipebooktest",
+    "storage_bucket": "recipebooktest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90722534780:android:300a38915df2aa3a",
+        "android_client_info": {
+          "package_name": "org.cookandcode.recepybook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90722534780-p32pre5u0s5jppb3pl9g2715b04jnb7d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9zDBqo9yV3t2OXCu4tGbzM5YxLUYWdIo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
