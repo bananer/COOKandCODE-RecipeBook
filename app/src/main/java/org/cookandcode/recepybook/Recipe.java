@@ -1,6 +1,7 @@
 package org.cookandcode.recepybook;
 
-public class Recipe {
+public class Recipe
+{
     protected String name;
     protected String instructions;
 
@@ -10,15 +11,15 @@ public class Recipe {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getInstructions() {
-        return instructions;
+        return this.instructions;
     }
 
     @Override
     public String toString() {
-        return getName();
+        return this.getName();
     }
 }
